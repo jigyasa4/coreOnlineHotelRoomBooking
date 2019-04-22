@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Basic.cshtml";
+}
+
+<div class="home">
+    <div class="background_image"><img src="~/images/booking.jpg" /></div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content text-center">
+                        <div class="home_title">Your Bookings</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Booking -->
+
+<div class="booking">
+
+</div>
+<div class="container">
+
+    <table class="table table-hover">
+        <tr>
+
+            <th>Id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Room Price</th>
+            <th>No Of Days</th>
+            <th>Sub Total</th>
+            <th>Options</th>
+        </tr>
+        @foreach (var item in ViewBag.booking)
+        {
+            <tr>
+
+                <td>@item.HotelRooms.RoomId</td>
+                <td>@item.HotelRooms.RoomType</td>
+
+                <td><img class="cart" src="@item.HotelRooms.RoomImage" height="60" width="60" /> </td>
+
+                <td>@item.HotelRooms.RoomPrice</td>
+                <td>@TempData["days"]</td>
+                <td>@(item.HotelRooms.RoomPrice * ViewBag.days )</td>
+
+                <td><a class="btn btn-danger" asp-controller="Booking" asp-action="Remove" asp-route-id="@item.HotelRooms.RoomId" />Remove</td>
+            </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td>
+                @ViewBag.total
+            </td>
+        </tr>
+    </table>
+
+    <br />
+    <div class="book_now_button">
+        <a asp-controller="Home" asp-action="Index">Continue Booking</a>
+    </div>
+    <div class="book_now_button" style="margin-top:-55px; margin-left:170px">
+        <a asp-controller="Customer" asp-action="Index">Checkout</a>
+    </div>
+
+</div>
+
+
+@{ 
+    TempData.Keep("days");
+}

@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Basic.cshtml";
+}
+
+
+<div class="home">
+    <div class="background_image"><img src="~/images/booking.jpg" /></div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content text-center">
+                        <div class="home_title">Book a room</div>
+                        @*<div class="booking_form_container">
+                                <form action="#" class="booking_form" id="booking_form">
+                                    <div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                        <div class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
+                                            <div><input type="date" class=" booking_input booking_input_a booking_in" placeholder="Check in" name="checkIn" id="checkIn" value="@Context.Session.GetString("CheckIn")" required="required"></div>
+                                            <div><input type="date" class=" booking_input booking_input_a booking_out" placeholder="Check out" name="CheckOut" id="CheckOut" value="@Context.Session.GetString("CheckOut")" required="required"></div>
+                                            <div><input type="text" class="booking_input booking_input_b booking_in" placeholder="Hotel" name="Search" id="Search" value="@Context.Session.GetString("Search")" required="required"></div>
+                                            <div><input type="number" class="booking_input booking_input_b" placeholder="Guest" name="guest" id="guest" value="@Context.Session.GetString("Guest")" required="required"></div>
+                                        </div>
+                                        <div><button class="booking_button trans_200">Book Now</button></div>
+                                    </div>
+                                </form>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Booking -->
+
+<div class="booking">
+    <div class="container">
+
+    </div>
+</div>
+
+<div class="details">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- Details Image -->
+            <div class="col-xl-7 col-lg-6">
+                <div class="details_image">
+                    <div class="background_image"><img src="@ViewBag.Hotel.HotelImage" class="bd-placeholder-img card-img-top" /></div>
+                </div>
+            </div>
+
+            <!-- Details Content -->
+            <div class="col-xl-5 col-lg-6">
+                <div class="details_content">
+                    <div class="details_title">@ViewBag.Hotel.HotelName</div>
+
+                    <div class="details_long_list">
+                        <div class="card-body">
+                            <table class="table table-hover table table-bordered">
+                                <tr>
+                                    <th>
+                                        Hotel Type
+                                    </th>
+                                    <td>
+                                        @ViewBag.HotelType.HotelTypeName
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <th>
+                                        Hotel Address
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelAddress
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel District
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelDistrict
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel City
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelCity
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel State
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelState
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel Country
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelCountry
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel Email Id
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelEmailId
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel Rating
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelRating
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Contact Number
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelContactNumber
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Hotel Description
+                                    </th>
+                                    <td>
+                                        @ViewBag.Hotel.HotelDescription
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="book_now_button" style="margin-left:20px"><a asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.Hotel.HotelId">Back to Home</a></div>
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

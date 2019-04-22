@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "PaymentIndex";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
+
+<form action="/Booking/charge" method="POST">
+    <article>
+        <h3>Amount: @ViewBag.total</h3>
+    </article>
+    <script src="//checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="@Stripe.Value.PublishableKey"
+            data-locale="auto"
+            data-description="Pay Here"
+            data-amount="@ViewBag.total">
+    </script>
+</form>
+
+
